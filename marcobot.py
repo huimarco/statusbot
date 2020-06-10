@@ -40,25 +40,26 @@ async def on_message(message):
 async def on_member_update(before, after):
 
     guild = after.guild
-    role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
+    var = discord.utils.find(lambda r: r.name == 'mute', guild.roles)
+    prereq = discord.utils.find(lambda r: r.name == 'prereq', guild.roles)
 
-    if before.bot:
+    if not before.bot:
+        if prereq in before.roles:
+            if str(before.status) == "online":
+                if str(after.status) == "offline":
+                    await after.add_roles(var)
+            if str(before.status) == "idle":
+                if str(after.status) == "offline":
+                    await after.add_roles(var)           
+            if str(before.status) == "dnd":
+                if str(after.status) == "offline":
+                    await after.add_roles(var)           
+            if str(before.status) == "offline":
+                if str(after.status) == "online":
+                    await after.remove_roles(var)
+            else:
+                return
+    else: 
         return
-    
-    if str(before.status) == "online":
-        if str(after.status) == "offline":
-            await after.remove_roles(role)
-    
-    if str(before.status) == "idle":
-        if str(after.status) == "offline":
-            await after.remove_roles(role)
-    
-    if str(before.status) == "dnd":
-        if str(after.status) == "offline":
-            await after.remove_roles(role)
-    
-    if str(before.status) == "offline":
-        if str(after.status) == "online":
-            await after.add_roles(role)
         
 bot.run(TOKEN)
