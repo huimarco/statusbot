@@ -20,10 +20,10 @@ async def on_message(message):
 
 # chat
     if 'how are you' in message.content:
-        await message.channel.send('I am doing well. Thank you for asking.')
+        await message.channel.send('Good.')
 
-# invisible nazi (message)
-    if message.content.startswith('skittles'):
+# message
+    if message.content.startswith('asdf'):
         if message.channel.id == 378488703703711745:
             guild = message.author.guild
             role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
@@ -37,7 +37,7 @@ async def on_message(message):
 
     
 
-# invisible nazi (status)
+# status
 @ bot.event
 async def on_member_update(before, after):
 
