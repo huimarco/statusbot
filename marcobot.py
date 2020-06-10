@@ -44,6 +44,9 @@ async def on_member_update(before, after):
     guild = after.guild
     role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
 
+    if before.bot:
+        return
+    
     if str(before.status) == "online":
         if str(after.status) == "offline":
             await after.remove_roles(role)
