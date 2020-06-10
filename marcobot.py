@@ -64,4 +64,4 @@ async def on_member_update(before, after):
             await after.add_roles(role)
     
         
-bot.run('NzE5MDEyNjIyNDE4MDUxMTE1.Xt02xg.OGthb0_mrGje75CQhvAId3rbNe4')
+bot.run(TOKEN)
