@@ -22,22 +22,20 @@ async def on_message(message):
     if 'how are you' in message.content:
         await message.channel.send('Good.')
 
-# message
-    if message.content.startswith('asdf'):
+# roles on message
+    if message.content.startswith('adhesive'):
         if message.channel.id == 378488703703711745:
             guild = message.author.guild
             role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
             await message.author.remove_roles(role)
 
-    if 'jellybeans' in message.content:
+    if message.content.startswith('quixotic'):
         if message.channel.id == 378488703703711745:
             guild = message.author.guild
             role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
             await message.author.add_roles(role)
 
-    
-
-# status
+# role on status
 @ bot.event
 async def on_member_update(before, after):
 
@@ -62,6 +60,5 @@ async def on_member_update(before, after):
     if str(before.status) == "offline":
         if str(after.status) == "online":
             await after.add_roles(role)
-    
         
 bot.run(TOKEN)
