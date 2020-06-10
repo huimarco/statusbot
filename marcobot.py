@@ -46,18 +46,15 @@ async def on_member_update(before, after):
 
     if str(before.status) == "online":
         if str(after.status) == "offline":
-            return
-            #await after.remove_roles(role)
+            await after.remove_roles(role)
     
     if str(before.status) == "idle":
         if str(after.status) == "offline":
-            return
-            #await after.remove_roles(role)
+            await after.remove_roles(role)
     
     if str(before.status) == "dnd":
         if str(after.status) == "offline":
-            return
-            #await after.remove_roles(role)
+            await after.remove_roles(role)
     
     if str(before.status) == "offline":
         if str(after.status) == "online":
