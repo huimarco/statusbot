@@ -20,20 +20,21 @@ async def on_message(message):
 
 # chat
     if 'how are you' in message.content:
-        await message.channel.send('Good.')
+        await message.channel.send('I am doing well. Thank you for asking.')
 
-# roles on message
-    if message.content.startswith('adhesive'):
+# role on message
+    if message.content.startswith('buzzword1'):
         if message.channel.id == 378488703703711745:
             guild = message.author.guild
-            role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
+            role = discord.utils.find(lambda r: r.name == 'rolename', guild.roles)
             await message.author.remove_roles(role)
 
-    if message.content.startswith('quixotic'):
+    if message.content.startswith('buzzword2'):
         if message.channel.id == 378488703703711745:
             guild = message.author.guild
-            role = discord.utils.find(lambda r: r.name == 'swolebois', guild.roles)
+            role = discord.utils.find(lambda r: r.name == 'rolename', guild.roles)
             await message.author.add_roles(role)
+
 
 # role on status
 @ bot.event
@@ -50,7 +51,7 @@ async def on_member_update(before, after):
                     await after.add_roles(var)
             if str(before.status) == "idle":
                 if str(after.status) == "offline":
-                    await after.add_roles(var)           
+                    await after.add_roles(var)            
             if str(before.status) == "dnd":
                 if str(after.status) == "offline":
                     await after.add_roles(var)           
