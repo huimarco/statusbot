@@ -1,4 +1,4 @@
 # marcobot
-Discord bot that restrict access to channels based on user status.
+Discord bot that restricts user access to channels based on their status.
 
 
